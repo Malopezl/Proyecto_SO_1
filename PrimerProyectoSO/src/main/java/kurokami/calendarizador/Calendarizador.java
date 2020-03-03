@@ -5,10 +5,13 @@
  */
 package kurokami.calendarizador;
 import utilidades.*;
+import java.util.ArrayList;
 /**
  *
  * @author marcos
  */
-public class Calendarizador {
+public class Calendarizador extends Thread{
     public static Proceso procesoEnCurso;
+    private ArrayList<Proceso> listaProcesos;
+    
 }
