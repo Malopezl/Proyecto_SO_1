@@ -6,7 +6,7 @@
 package utilidades;
 
 /**
- *
+ * 
  * @author marcos
  */
 public enum EstadoProceso {

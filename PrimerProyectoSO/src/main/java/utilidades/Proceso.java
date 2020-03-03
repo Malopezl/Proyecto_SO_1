@@ -16,6 +16,7 @@ public class Proceso extends Thread{
     private double total;
     private double restante;
     private String estado;
+    
     /**
      * Constructor del nuevo proceso.
      * @param id  Nombre que recibira el proceso.
@@ -28,7 +29,7 @@ public class Proceso extends Thread{
         fechaFinal = null;
         this.total = -1;
         Random nuevoAleatorio = new Random(System.currentTimeMillis());
-        while(total < 0){
+        while(total < 1){
             total = nuevoAleatorio.nextInt(100);
         }
         this.restante = total;
