@@ -40,7 +40,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         etiquetaTotal = new javax.swing.JLabel();
         etiquetaRestante = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        estadisticaFinal = new javax.swing.JList<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -92,18 +92,19 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         etiquetaRestante.setText("Tiempo Restante");
         add(etiquetaRestante, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        estadisticaFinal.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {};
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane5.setViewportView(jList1);
+        jScrollPane5.setViewportView(estadisticaFinal);
 
         add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 120, 220));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JList<String> estadisticaFinal;
     public static javax.swing.JList<String> estadisticaInicio;
     public static javax.swing.JList<String> estadisticaProceso;
     public static javax.swing.JList<String> estadisticaRestante;
@@ -112,7 +113,6 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
     private javax.swing.JLabel etiquetaProceso;
     private javax.swing.JLabel etiquetaRestante;
     private javax.swing.JLabel etiquetaTotal;
-    public static javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
