@@ -105,5 +105,18 @@ public class Proceso extends Thread{
             return this.estado;
         }
     }
+   
+    public String getID() {
+        return ID;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public double getRestante() {
+        return restante;
+    }
     
+     
 }

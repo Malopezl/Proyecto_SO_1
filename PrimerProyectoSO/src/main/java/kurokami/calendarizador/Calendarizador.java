@@ -28,7 +28,6 @@ public class Calendarizador extends Thread{
     @Override
     public void run(){
         boolean correr = true;
-        int tiempo;
         int i;
         Proceso procesoActivo;
         while(correr){
@@ -36,6 +35,7 @@ public class Calendarizador extends Thread{
                 procesoActivo = listaProcesos.get(contador);
                 procesoActivo.setEstadoAtendido();
                 Calendarizador.procesoEnCurso = procesoActivo;
+           
                 for(i = 0; i < 40; i++){
                     try {
                         Thread.sleep(25);
@@ -43,10 +43,21 @@ public class Calendarizador extends Thread{
                         Logger.getLogger(Calendarizador.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                
-                procesoActivo.setEstadoEspera();
+                if(procesoActivo.getRestante() > 0){
+                    procesoActivo.setEstadoEspera();
+                }else{
+                    procesoActivo.setEstadoFinalizado();
+                }
+                contador+=1;
+                if(contador == listaProcesos.size() ){
+                    contador = 0;
+                }
                 
             }
         }
+    }
+    
+    public void nuevoProceso(String id){
+        
     }
 }
