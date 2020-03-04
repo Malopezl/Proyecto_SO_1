@@ -116,6 +116,10 @@ public class Proceso extends Thread{
     public double getRestante() {
         return restante;
     }
+
+    public String getEstado() {
+        return estado;
+    }
     
     
 }
