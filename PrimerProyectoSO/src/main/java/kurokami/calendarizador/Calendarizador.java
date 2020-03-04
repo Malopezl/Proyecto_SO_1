@@ -102,6 +102,9 @@ public class Calendarizador extends Thread{
         estadisticaCalendarizador.estadisticaTotal.setModel(tiempoTotal);
         estadisticaCalendarizador.estadisticaFinal.setModel(finalizacion);
     }
+    /**
+     * Actualiza los valores dentro de la lista de tiempo restante en la clase estadisticaCalendarizador
+     */
     private void actualizarListaRestante(){
         DefaultListModel tiempoRestante = new DefaultListModel();
         for(Proceso p : listaProcesos){
@@ -109,6 +112,9 @@ public class Calendarizador extends Thread{
         }
         estadisticaCalendarizador.estadisticaRestante.setModel(tiempoRestante);
     }
+    /**
+     * Actualiza los valores dentro de la lista de hora de finalizacion dentro de la clase estadistica calendarizacion.
+     */
     private void actualizarListaFinalizado(){
         DefaultListModel finalizacion = new DefaultListModel();
         for(Proceso p : listaProcesos){
