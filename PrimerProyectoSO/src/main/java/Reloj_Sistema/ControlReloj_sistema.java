@@ -13,13 +13,12 @@ import java.util.logging.Logger;
  * @author tito88
  */
 public class ControlReloj_sistema extends javax.swing.JPanel {
-
+ public ControlReloj_Sistema hilo = new ControlReloj_Sistema();
     /**
      * Creates new form RELOJ
      */
     public ControlReloj_sistema() {
         initComponents();
-        ControlReloj_Sistema hilo = new ControlReloj_Sistema();
         hilo.start();
     }
 
@@ -29,7 +28,7 @@ public class ControlReloj_sistema extends javax.swing.JPanel {
         private Boolean bandera_hilo = true;
         public Reloj_Sistema reloj = new Reloj_Sistema();
         
-        public void RUN() {
+        public void run() {
           Reloj_Sistema.setHora_sistema();
           hora_sistema = Reloj_Sistema.Hora_sistema;
            while(bandera_hilo==true){
