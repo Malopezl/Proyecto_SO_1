@@ -5,10 +5,26 @@
  */
 package Reloj_Sistema;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author tito88
  */
 public class Reloj_Sistema {
+    public static String Hora_sistema;
+
+
+    public static String getHora_sistema() {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    Date date = new Date();
+    Hora_sistema = dateFormat.format(date);
+        return Hora_sistema;
+    }
+
+ 
+    
     
 }
