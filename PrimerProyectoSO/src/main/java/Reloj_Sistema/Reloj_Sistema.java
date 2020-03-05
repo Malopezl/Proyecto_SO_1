@@ -14,17 +14,17 @@ import java.util.Date;
  * @author tito88
  */
 public class Reloj_Sistema {
+
     public static String Hora_sistema;
 
+    public static void setHora_sistema() {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        Hora_sistema = dateFormat.format(date);
+    }
 
     public static String getHora_sistema() {
-    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-    Date date = new Date();
-    Hora_sistema = dateFormat.format(date);
         return Hora_sistema;
     }
 
- 
-    
-    
 }
