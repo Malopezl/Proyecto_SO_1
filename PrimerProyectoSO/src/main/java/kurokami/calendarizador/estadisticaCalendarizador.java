@@ -99,7 +99,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(estadisticaFinal);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 120, 220));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 120, 220));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -119,4 +119,17 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
+    public void inicializacion(){
+    
+        this.setSize(500, 400);
+        estadisticaCalendarizador.estadisticaFinal.setSize(325, 90);
+        estadisticaCalendarizador.estadisticaInicio.setSize(325, 90);
+        estadisticaCalendarizador.estadisticaProceso.setSize(325, 90);
+        estadisticaCalendarizador.estadisticaRestante.setSize(325, 90);
+        estadisticaCalendarizador.estadisticaTotal.setSize(325, 90);
+        
+        
+    }
+
+
 }
