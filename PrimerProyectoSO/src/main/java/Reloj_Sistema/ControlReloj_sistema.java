@@ -13,7 +13,9 @@ import java.util.logging.Logger;
  * @author tito88
  */
 public class ControlReloj_sistema extends javax.swing.JPanel {
- public ControlReloj_Sistema hilo = new ControlReloj_Sistema();
+
+    public ControlReloj_Sistema hilo = new ControlReloj_Sistema();
+
     /**
      * Creates new form RELOJ
      */
@@ -26,20 +28,18 @@ public class ControlReloj_sistema extends javax.swing.JPanel {
 
         private String hora_sistema = "";
         private Boolean bandera_hilo = true;
-        public Reloj_Sistema reloj = new Reloj_Sistema();
-        
+
         public void run() {
-          Reloj_Sistema.setHora_sistema();
-          hora_sistema = Reloj_Sistema.Hora_sistema;
-           while(bandera_hilo==true){
-               try {
-                 
-                   jLabel3.setText(hora_sistema);
-                   Thread.sleep(200);
-               } catch (InterruptedException ex) {
-                   Logger.getLogger(ControlReloj_sistema.class.getName()).log(Level.SEVERE, null, ex);
-               }
-           }
+            while (bandera_hilo == true) {
+                try {
+                    Reloj_Sistema.setHora_sistema();
+                    hora_sistema = Reloj_Sistema.Hora_sistema;
+                    jLabel3.setText(hora_sistema);
+                    Thread.sleep(1);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ControlReloj_sistema.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 
