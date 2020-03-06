@@ -16,6 +16,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
      */
     public estadisticaCalendarizador() {
         initComponents();
+        this.inicializacion();
     }
 
     /**
@@ -41,6 +42,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         etiquetaRestante = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         estadisticaFinal = new javax.swing.JList<>();
+        etiquetaFinalizado = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,6 +102,9 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         jScrollPane5.setViewportView(estadisticaFinal);
 
         add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 120, 220));
+
+        etiquetaFinalizado.setText(" Finalizado");
+        add(etiquetaFinalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -109,6 +114,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
     public static javax.swing.JList<String> estadisticaProceso;
     public static javax.swing.JList<String> estadisticaRestante;
     public static javax.swing.JList<String> estadisticaTotal;
+    private javax.swing.JLabel etiquetaFinalizado;
     private javax.swing.JLabel etiquetaInicio;
     private javax.swing.JLabel etiquetaProceso;
     private javax.swing.JLabel etiquetaRestante;
@@ -122,11 +128,16 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
     public void inicializacion(){
     
         this.setSize(500, 400);
-        estadisticaCalendarizador.estadisticaFinal.setSize(325, 90);
-        estadisticaCalendarizador.estadisticaInicio.setSize(325, 90);
-        estadisticaCalendarizador.estadisticaProceso.setSize(325, 90);
-        estadisticaCalendarizador.estadisticaRestante.setSize(325, 90);
-        estadisticaCalendarizador.estadisticaTotal.setSize(325, 90);
+        estadisticaCalendarizador.estadisticaFinal.setSize(90, 325);
+        estadisticaCalendarizador.estadisticaInicio.setSize(90, 325);
+        estadisticaCalendarizador.estadisticaProceso.setSize(90, 325);
+        estadisticaCalendarizador.estadisticaRestante.setSize(90, 325);
+        estadisticaCalendarizador.estadisticaTotal.setSize(90, 325);
+        estadisticaCalendarizador.estadisticaFinal.setLocation(385, 50);
+        estadisticaCalendarizador.estadisticaInicio.setLocation(115, 50);
+        estadisticaCalendarizador.estadisticaProceso.setLocation(25, 50);
+        estadisticaCalendarizador.estadisticaRestante.setLocation(295, 50);
+        estadisticaCalendarizador.estadisticaTotal.setLocation(205, 50);
         
         
     }

@@ -26,23 +26,30 @@ public class Calendarizador extends Thread{
         listaProcesos = new ArrayList<>();
         contador = -1;
     }
-    
+    /**
+     * 
+     */
     @Override
     public void run(){
         boolean correr = true;
         int i;
         Proceso procesoActivo;
         while(correr){
-            if(listaProcesos.size() > 0 && procesosActivos > 0){
+           System.out.println("Tamaño lista: " + this.listaProcesos.size()+ "   en espera: " + this.procesosActivos);
+            if(this.listaProcesos.size() > 0 && this.procesosActivos > 0){
                 procesoActivo = listaProcesos.get(contador);
+                System.out.println(procesoActivo.getID());
                 if(procesoActivo.getEstado().equals(EstadoProceso.EN_ESPERA.getEstado())){
                     procesoActivo.setEstadoAtendido();
                     this.actualizarListaFinalizado();
                     Calendarizador.procesoEnCurso = procesoActivo;
                     for(i = 0; i < 40; i++){
                         try {
-                            Thread.sleep(25);
                             this.actualizarListaRestante();
+                            Thread.sleep(25);
+                            if(procesoActivo.getRestante() <= 0){
+                                break;
+                            }
                         } catch (InterruptedException ex) {
                             Logger.getLogger(Calendarizador.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -60,6 +67,7 @@ public class Calendarizador extends Thread{
                     contador = 0;
                 }
                 
+                
             }
         }
     }
@@ -70,13 +78,14 @@ public class Calendarizador extends Thread{
     public void nuevoProceso(String id){
         Proceso nuevo = new Proceso(id);
         nuevo.setEstadoEspera();
+        nuevo.start();
         if(listaProcesos.isEmpty()){
            this.contador = 0;
            this.procesosActivos = 1;
         }else{
             this.procesosActivos += 1;
         }
-        listaProcesos.add(nuevo);
+        this.listaProcesos.add(nuevo);
         this.actualizarLista();
     }
     
@@ -91,7 +100,7 @@ public class Calendarizador extends Thread{
         DefaultListModel finalizacion = new DefaultListModel();
         for(Proceso p : listaProcesos){
             procesoID.addElement(p.getID());
-            inicio.addElement(p.getFechaInicio());
+            inicio.addElement(p.getHoraInicio());
             tiempoTotal.addElement(Double.toString(p.getTotal()));
             tiempoRestante.addElement(Double.toString(p.getRestante()));
             finalizacion.addElement(p.getHoraFin());

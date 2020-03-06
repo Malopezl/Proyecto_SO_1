@@ -39,8 +39,9 @@ public class Proceso extends Thread{
     @Override
     public void run(){
         while(!(this.estado.equals(EstadoProceso.FINALIZADO.getEstado()))){
+            System.out.println("Sigo vivo");
             if(this.estado.equals(EstadoProceso.ATENDIDO.getEstado())){
-                    this.restante -= .1;
+                    this.restante -= 0.10;
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
