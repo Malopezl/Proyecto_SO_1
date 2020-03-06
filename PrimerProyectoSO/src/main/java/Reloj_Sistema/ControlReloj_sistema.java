@@ -18,17 +18,30 @@ public class ControlReloj_sistema extends javax.swing.JPanel {
 
     /**
      * Creates new form RELOJ
+     * Comienza el hilo
      */
     public ControlReloj_sistema() {
         initComponents();
         hilo.start();
     }
-
+/**
+ *
+ * @author gilda
+ * Clase del hilo
+ */
     public class ControlReloj_Sistema extends Thread {
 
         private String hora_sistema = "";
         private Boolean bandera_hilo = true;
-
+        
+/** 
+ * @see Reloj_Sistema#setHora_sistema() 
+ * Asinga la hora del sistema a la clase Reloj_Sustema  
+ * Obtiene la hora que se asigno
+ * Cambia el label que contiene la hora
+ * Sleep de un segundo
+ * 
+ */
         public void run() {
             while (bandera_hilo == true) {
                 try {

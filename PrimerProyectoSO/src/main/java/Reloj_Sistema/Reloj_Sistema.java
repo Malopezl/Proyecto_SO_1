@@ -16,13 +16,19 @@ import java.util.Date;
 public class Reloj_Sistema {
 
     public static String Hora_sistema;
-
+/**
+ * Crea un formato de forma HH:mm:ss para la hora
+ * Asigna la hora del sistema al atributo estatico
+ */
     public static void setHora_sistema() {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         Date date = new Date();
         Hora_sistema = dateFormat.format(date);
     }
-
+/**
+ * @return Devuelve la hora que se asigno
+ * @deprecated 
+ */
     public static String getHora_sistema() {
         return Hora_sistema;
     }
