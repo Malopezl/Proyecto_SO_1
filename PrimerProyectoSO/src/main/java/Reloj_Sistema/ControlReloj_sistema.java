@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author tito88
+ * @author gilda
  */
 public class ControlReloj_sistema extends javax.swing.JPanel {
 

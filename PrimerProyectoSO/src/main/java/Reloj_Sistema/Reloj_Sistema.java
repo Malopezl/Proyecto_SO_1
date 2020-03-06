@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  *
- * @author tito88
+ * @author gilda
  */
 public class Reloj_Sistema {
 
