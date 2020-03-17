@@ -35,7 +35,9 @@ public class Calendarizador extends Thread{
         int i;
         Proceso procesoActivo;
         while(correr){
-           System.out.println("Tamaño lista: " + this.listaProcesos.size()+ "   en espera: " + this.procesosActivos);
+            if (procesoEnCurso != null)
+                PC();
+            System.out.println("Tamaño lista: " + this.listaProcesos.size()+ "   en espera: " + this.procesosActivos);
             if(this.listaProcesos.size() > 0 && this.procesosActivos > 0){
                 procesoActivo = listaProcesos.get(contador);
                 System.out.println(procesoActivo.getID());
@@ -132,4 +134,12 @@ public class Calendarizador extends Thread{
         estadisticaCalendarizador.estadisticaFinal.setModel(finalizacion);
     }
     
+    /**
+     * Este metodo obtiene el ID y la direccion de memoria del proceso que esta en ejecucion y los asigna a un label y un textfield
+     */
+    
+    public void PC() {
+        ContadorPrograma.jLabel5.setText(procesoEnCurso.getID());
+        ContadorPrograma.jTextField1.setText(Integer.toHexString(procesoEnCurso.hashCode()));
+    }
 }
