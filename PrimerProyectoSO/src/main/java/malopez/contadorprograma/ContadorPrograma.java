@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package malopez.contadorprograma;
-import utilidades.*;
 
 /**
  *
@@ -62,7 +61,7 @@ public class ContadorPrograma extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
