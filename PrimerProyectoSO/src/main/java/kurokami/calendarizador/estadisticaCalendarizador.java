@@ -53,7 +53,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(estadisticaProceso);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 220));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 130, 220));
 
         estadisticaInicio.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {};
@@ -62,7 +62,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(estadisticaInicio);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 130, 220));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 130, 220));
 
         estadisticaTotal.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {};
@@ -71,7 +71,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(estadisticaTotal);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 120, 220));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 120, 220));
 
         estadisticaRestante.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {};
@@ -80,19 +80,19 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(estadisticaRestante);
 
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 130, 220));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 130, 220));
 
         etiquetaProceso.setText("Proceso");
-        add(etiquetaProceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        add(etiquetaProceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         etiquetaInicio.setText("Inicio");
-        add(etiquetaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+        add(etiquetaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         etiquetaTotal.setText("Tiempo Total");
-        add(etiquetaTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        add(etiquetaTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         etiquetaRestante.setText("Tiempo Restante");
-        add(etiquetaRestante, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
+        add(etiquetaRestante, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
         estadisticaFinal.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {};
@@ -101,10 +101,10 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(estadisticaFinal);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 120, 220));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 120, 220));
 
         etiquetaFinalizado.setText(" Finalizado");
-        add(etiquetaFinalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, -1, -1));
+        add(etiquetaFinalizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -133,11 +133,11 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
         estadisticaCalendarizador.estadisticaProceso.setSize(90, 325);
         estadisticaCalendarizador.estadisticaRestante.setSize(90, 325);
         estadisticaCalendarizador.estadisticaTotal.setSize(90, 325);
-        estadisticaCalendarizador.estadisticaFinal.setLocation(385, 50);
-        estadisticaCalendarizador.estadisticaInicio.setLocation(115, 50);
-        estadisticaCalendarizador.estadisticaProceso.setLocation(25, 50);
-        estadisticaCalendarizador.estadisticaRestante.setLocation(295, 50);
-        estadisticaCalendarizador.estadisticaTotal.setLocation(205, 50);
+        estadisticaCalendarizador.estadisticaFinal.setLocation(364, 50);
+        estadisticaCalendarizador.estadisticaInicio.setLocation(91, 50);
+        estadisticaCalendarizador.estadisticaProceso.setLocation(0, 50);
+        estadisticaCalendarizador.estadisticaRestante.setLocation(273, 50);
+        estadisticaCalendarizador.estadisticaTotal.setLocation(182, 50);
         
         
     }

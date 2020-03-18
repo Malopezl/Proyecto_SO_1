@@ -70,6 +70,7 @@ public class ControlReloj_sistema extends javax.swing.JPanel {
 
         jLabel2.setText("jLabel2");
 
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 60)); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -82,16 +83,16 @@ public class ControlReloj_sistema extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(jLabel3)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(188, 188, 188)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(363, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel3)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addGap(124, 124, 124)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(461, Short.MAX_VALUE))
         );
 
         jLabel3.getAccessibleContext().setAccessibleName("hora");
