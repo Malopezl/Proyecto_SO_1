@@ -14,7 +14,6 @@ import Reloj_Sistema.*;
 import Reloj_Sistema.ControlReloj_sistema;
 public class main extends javax.swing.JFrame {
     
-    private Calendarizador calendarizador ;
     private ControlReloj_sistema ControlReloj;
     private estadisticaCalendarizador estadistica;
     private mainCalendarizador principal;
@@ -150,8 +149,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JInternalFrame frameReloj;
     // End of variables declaration//GEN-END:variables
     public void inicializacion(){
-        calendarizador = new Calendarizador();
-        calendarizador.start();
         this.setSize(1150, 800);
         contador = new ContadorPrograma();
         this.frameContador.setContentPane(contador);
