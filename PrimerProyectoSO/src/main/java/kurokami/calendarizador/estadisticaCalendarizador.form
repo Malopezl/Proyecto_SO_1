@@ -120,7 +120,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="etiquetaProceso">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Prooceso"/>
+        <Property name="text" type="java.lang.String" value="Proceso"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

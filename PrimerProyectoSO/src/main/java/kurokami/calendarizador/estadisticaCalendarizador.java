@@ -82,7 +82,7 @@ public class estadisticaCalendarizador extends javax.swing.JPanel {
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 130, 220));
 
-        etiquetaProceso.setText("Prooceso");
+        etiquetaProceso.setText("Proceso");
         add(etiquetaProceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         etiquetaInicio.setText("Inicio");

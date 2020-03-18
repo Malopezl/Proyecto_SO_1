@@ -11,11 +11,12 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 /**
  *
- * @author marcos
+ * @author Marcos Sierra, Sharon Gomez
  */
 public class Calendarizador extends Thread{
     public static Proceso procesoEnCurso;
     private ArrayList<Proceso> listaProcesos;
+    private ArrayList<String> enEspera;
     private int procesosActivos;
     private int contador;
     /**
@@ -24,6 +25,7 @@ public class Calendarizador extends Thread{
     public Calendarizador(){
         procesoEnCurso = null;
         listaProcesos = new ArrayList<>();
+        enEspera= new ArrayList<>();;
         contador = -1;
     }
     /**
@@ -43,6 +45,7 @@ public class Calendarizador extends Thread{
                 System.out.println(procesoActivo.getID());
                 if(procesoActivo.getEstado().equals(EstadoProceso.EN_ESPERA.getEstado())){
                     procesoActivo.setEstadoAtendido();
+                    this.rotarListaEnEspera(procesoActivo.getID());
                     this.actualizarListaFinalizado();
                     Calendarizador.procesoEnCurso = procesoActivo;
                     for(i = 0; i < 40; i++){
@@ -61,6 +64,7 @@ public class Calendarizador extends Thread{
                     }else{
                         procesoActivo.setEstadoFinalizado();
                         procesosActivos -= 1;
+                        this.actualizarListaEnEspera(procesoActivo.getID());
                     }
                     this.actualizarListaFinalizado();
                 }
@@ -74,10 +78,12 @@ public class Calendarizador extends Thread{
         }
     }
     /**
-     * Este metodo agrega un proceso a la lista de procoesos del calendarizador, ademas de ajustar la cantidad de procesos activos.
+     * Este metodo agrega un proceso a la lista de procesos del calendarizador, ademas de ajustar la cantidad de procesos activos.
+     * Agrega el nombre del proceso a la lista de procesos en espera.
      * @param id Recibe el nombre que tendra el proceso 
      */
     public void nuevoProceso(String id){
+        
         Proceso nuevo = new Proceso(id);
         nuevo.setEstadoEspera();
         nuevo.start();
@@ -87,8 +93,11 @@ public class Calendarizador extends Thread{
         }else{
             this.procesosActivos += 1;
         }
+        
         this.listaProcesos.add(nuevo);
+        this.enEspera.add(id);
         this.actualizarLista();
+        
     }
     
     /**
@@ -100,6 +109,7 @@ public class Calendarizador extends Thread{
         DefaultListModel tiempoTotal = new DefaultListModel();
         DefaultListModel tiempoRestante = new DefaultListModel();
         DefaultListModel finalizacion = new DefaultListModel();
+        
         for(Proceso p : listaProcesos){
             procesoID.addElement(p.getID());
             inicio.addElement(p.getHoraInicio());
@@ -133,8 +143,48 @@ public class Calendarizador extends Thread{
         }
         estadisticaCalendarizador.estadisticaFinal.setModel(finalizacion);
     }
+    /**
+     * Se encarga de actualizar la cola de procesos en espera.
+     * Coloca el nombre del proceso que se esta atendiendo en el jTextField.
+     * @param id Recibe el nombre del proceso que se atiende en run()
+     */
+    private void rotarListaEnEspera(String id)
+    {
+        if(this.enEspera.size()>0 ){
+            ArrayList<String> temporal = enEspera;
+            DefaultListModel listaEnEspera = new DefaultListModel();
+            int numRotaciones =0;
+            
+            for(String p : temporal)
+            {
+                listaEnEspera.addElement(p);
+            }
+           
+            for(int i=0; i<temporal.size(); i++)
+            {
+                if(temporal.get(i).equals(id))
+                {
+                    numRotaciones=i;
+                    break;
+                }
+            }
+            
+            for(int i=0; i<numRotaciones; i++)
+            {
+             String temporalID = temporal.get(i);
+             listaEnEspera.addElement(temporalID);
+             listaEnEspera.remove(0);
+            }
+            
+            mainCalendarizador.calendarizadorListado.setModel(listaEnEspera); 
+            mainCalendarizador.turnoProceso.setText((String) listaEnEspera.get(0));
+            
+        }
+        
+    }
     
     /**
+<<<<<<< Updated upstream
      * Este metodo obtiene el ID y la direccion de memoria del proceso que esta en ejecucion y los asigna a un label y un textfield
      */
     
@@ -143,3 +193,25 @@ public class Calendarizador extends Thread{
         ContadorPrograma.jTextField1.setText(Integer.toHexString(procesoEnCurso.hashCode()));
     }
 }
+=======
+     * Actualiza la lista de procesos en Espera, recibe el nombre del proceso para quitarlo de la ista.
+     * @param id es el nombre del proceso que cambio al estado TERMINADO.
+     */
+    private void actualizarListaEnEspera(String id)
+    {
+        for(int i=0; i<this.enEspera.size(); i++)
+            {
+                if(this.enEspera.get(i).equals(id))
+                {
+                    this.enEspera.remove(i);
+                    break;
+                }
+            }
+        if(this.enEspera.size()==0 ){
+             mainCalendarizador.calendarizadorListado.setModel(new DefaultListModel()); 
+             mainCalendarizador.turnoProceso.setText("");
+        }
+    }
+  
+}
+>>>>>>> Stashed changes
