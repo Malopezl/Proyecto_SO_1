@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import malopez.contadorprograma.ContadorPrograma;
 /**
  *
  * @author Marcos Sierra, Sharon Gomez
