@@ -39,8 +39,9 @@ public class Proceso extends Thread{
     @Override
     public void run(){
         while(!(this.estado.equals(EstadoProceso.FINALIZADO.getEstado()))){
+           System.out.println("Sigo vivo");
             if(this.estado.equals(EstadoProceso.ATENDIDO.getEstado())){
-                    this.restante -= .1;
+                    this.restante -= 0.10;
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
@@ -62,6 +63,12 @@ public class Proceso extends Thread{
      */
     public void setEstadoAtendido(){
         this.estado = EstadoProceso.ATENDIDO.getEstado();
+    }
+    /**
+     * Cambia el estado a BLOQUEADO
+     */
+    public void setEstadoBloqueado(){
+        this.estado = EstadoProceso.BLOQUEADO.getEstado();
     }
     /**
      * Cambia el estado a FINALIZADO
@@ -105,7 +112,7 @@ public class Proceso extends Thread{
             return this.estado;
         }
     }
-
+   
     public String getID() {
         return ID;
     }
