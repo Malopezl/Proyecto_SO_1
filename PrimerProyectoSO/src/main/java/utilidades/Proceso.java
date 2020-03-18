@@ -65,6 +65,12 @@ public class Proceso extends Thread{
         this.estado = EstadoProceso.ATENDIDO.getEstado();
     }
     /**
+     * Cambia el estado a BLOQUEADO
+     */
+    public void setEstadoBloqueado(){
+        this.estado = EstadoProceso.BLOQUEADO.getEstado();
+    }
+    /**
      * Cambia el estado a FINALIZADO
      */
     public void setEstadoFinalizado(){

@@ -19,14 +19,16 @@ public class Calendarizador extends Thread{
     private ArrayList<String> enEspera;
     private int procesosActivos;
     private int contador;
+    private boolean interrupcion;
     /**
      * Constructor de nuevo calendarizador
      */
     public Calendarizador(){
         procesoEnCurso = null;
         listaProcesos = new ArrayList<>();
-        enEspera= new ArrayList<>();;
+        enEspera= new ArrayList<>();
         contador = -1;
+        interrupcion = false;
     }
     /**
      * 
@@ -37,10 +39,10 @@ public class Calendarizador extends Thread{
         int i;
         Proceso procesoActivo;
         while(correr){
-            if (procesoEnCurso != null)
+           if (procesoEnCurso != null)
                 PC();
             System.out.println("Tamaño lista: " + this.listaProcesos.size()+ "   en espera: " + this.procesosActivos);
-            if(this.listaProcesos.size() > 0 && this.procesosActivos > 0){
+            if((this.listaProcesos.size() > 0) && (this.procesosActivos > 0)){
                 procesoActivo = listaProcesos.get(contador);
                 System.out.println(procesoActivo.getID());
                 if(procesoActivo.getEstado().equals(EstadoProceso.EN_ESPERA.getEstado())){
@@ -50,10 +52,21 @@ public class Calendarizador extends Thread{
                     Calendarizador.procesoEnCurso = procesoActivo;
                     for(i = 0; i < 40; i++){
                         try {
-                            this.actualizarListaRestante();
-                            Thread.sleep(25);
-                            if(procesoActivo.getRestante() <= 0){
+                            if(this.interrupcion)
+                            {
+                             procesoActivo.setEstadoBloqueado();
+                             this.actualizarListaFinalizado();
+                             Thread.sleep(this.Interrupcion());
+                             this.interrupcion = false;
+                             procesoActivo.setEstadoAtendido();
+                             this.actualizarListaFinalizado();
+                            }else
+                            {
+                                this.actualizarListaRestante();
+                                Thread.sleep(25);
+                                if(procesoActivo.getRestante() <= 0){
                                 break;
+                                }
                             }
                         } catch (InterruptedException ex) {
                             Logger.getLogger(Calendarizador.class.getName()).log(Level.SEVERE, null, ex);
@@ -184,7 +197,7 @@ public class Calendarizador extends Thread{
     }
     
     /**
-<<<<<<< Updated upstream
+     * Updated upstream
      * Este metodo obtiene el ID y la direccion de memoria del proceso que esta en ejecucion y los asigna a un label y un textfield
      */
     
@@ -192,9 +205,9 @@ public class Calendarizador extends Thread{
         ContadorPrograma.jLabel5.setText(procesoEnCurso.getID());
         ContadorPrograma.jTextField1.setText(Integer.toHexString(procesoEnCurso.hashCode()));
     }
-}
-=======
-     * Actualiza la lista de procesos en Espera, recibe el nombre del proceso para quitarlo de la ista.
+
+
+     /* Actualiza la lista de procesos en Espera, recibe el nombre del proceso para quitarlo de la ista.
      * @param id es el nombre del proceso que cambio al estado TERMINADO.
      */
     private void actualizarListaEnEspera(String id)
@@ -207,11 +220,36 @@ public class Calendarizador extends Thread{
                     break;
                 }
             }
-        if(this.enEspera.size()==0 ){
+        if(this.enEspera.isEmpty() ){
              mainCalendarizador.calendarizadorListado.setModel(new DefaultListModel()); 
              mainCalendarizador.turnoProceso.setText("");
         }
     }
-  
+    
+    /**
+     * Genera un numero ya sea aleatorio para la duracion de la interrupcion
+     * En general es una duracion entre 1 y 5 segundos.
+     * @return tiempoInterrupcion 
+     */
+
+    private int Interrupcion() {
+       
+        //Genera un numero aleatorio entre 1000 y 5000 para enviar el tiempo de interrupcion
+        int tiempoInterrupcion = (int) (Math.random() * 5000) + 1000;
+       
+        //Se declara un numero fijo para el tiempo de interrupcion    
+        //int tiempoInterrupcion = 3000;
+       return tiempoInterrupcion;
+               
+    }
+    /**
+     * Cambia el estado de la variable interrupcion con el enviado, que en general es un true;
+     * @param interrupcion 
+     */
+
+    public void setInterrupcion(boolean interrupcion) {
+        this.interrupcion = interrupcion;
+    }
+    
 }
->>>>>>> Stashed changes
+

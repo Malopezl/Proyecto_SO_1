@@ -51,6 +51,11 @@ public class mainCalendarizador extends javax.swing.JPanel {
         });
 
         botonInterrumpir.setText("Interrumpir");
+        botonInterrumpir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInterrumpirActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(calendarizadorListado);
 
@@ -105,6 +110,10 @@ public class mainCalendarizador extends javax.swing.JPanel {
         contador++;
         
     }//GEN-LAST:event_botonIngresarActionPerformed
+
+    private void botonInterrumpirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInterrumpirActionPerformed
+        cal.setInterrupcion(true);
+    }//GEN-LAST:event_botonInterrumpirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
