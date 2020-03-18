@@ -55,18 +55,17 @@ public class Calendarizador extends Thread{
                         try {
                             if(this.interrupcion)
                             {
-                             procesoActivo.setEstadoBloqueado();
-                             this.actualizarListaFinalizado();
-                             Thread.sleep(this.Interrupcion());
-                             this.interrupcion = false;
-                             procesoActivo.setEstadoAtendido();
-                             this.actualizarListaFinalizado();
-                            }else
-                            {
+                                procesoActivo.setEstadoBloqueado();
+                                this.actualizarListaFinalizado();
+                                Thread.sleep(this.Interrupcion());
+                                this.interrupcion = false;
+                                procesoActivo.setEstadoAtendido();
+                                this.actualizarListaFinalizado();
+                            }else{
                                 this.actualizarListaRestante();
                                 Thread.sleep(25);
                                 if(procesoActivo.getRestante() <= 0){
-                                break;
+                                    break;
                                 }
                             }
                         } catch (InterruptedException ex) {
