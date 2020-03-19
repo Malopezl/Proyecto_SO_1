@@ -4,18 +4,27 @@
  * and open the template in the editor.
  */
 package kurokami.primerproyectoso;
-
+import kurokami.calendarizador.*;
+import malopez.contadorprograma.ContadorPrograma;
+import Reloj_Sistema.*;
 /**
  *
  * @author marcos
  */
+import Reloj_Sistema.ControlReloj_sistema;
 public class main extends javax.swing.JFrame {
-
+    
+    private ControlReloj_sistema ControlReloj;
+    private estadisticaCalendarizador estadistica;
+    private mainCalendarizador principal;
+    private ContadorPrograma contador;
+    
     /**
      * Creates new form main
      */
     public main() {
         initComponents();
+        this.inicializacion();
     }
 
     /**
@@ -27,103 +36,76 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentsMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        frameReloj = new javax.swing.JInternalFrame();
+        frameEstadistica = new javax.swing.JInternalFrame();
+        frameMain = new javax.swing.JInternalFrame();
+        frameContador = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        frameReloj.setVisible(true);
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
-
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
-
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentsMenuItem.setMnemonic('c');
-        contentsMenuItem.setText("Contents");
-        helpMenu.add(contentsMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
-        setJMenuBar(menuBar);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout frameRelojLayout = new javax.swing.GroupLayout(frameReloj.getContentPane());
+        frameReloj.getContentPane().setLayout(frameRelojLayout);
+        frameRelojLayout.setHorizontalGroup(
+            frameRelojLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 659, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+        frameRelojLayout.setVerticalGroup(
+            frameRelojLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
         );
+
+        getContentPane().add(frameReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 670, 400));
+
+        frameEstadistica.setVisible(true);
+
+        javax.swing.GroupLayout frameEstadisticaLayout = new javax.swing.GroupLayout(frameEstadistica.getContentPane());
+        frameEstadistica.getContentPane().setLayout(frameEstadisticaLayout);
+        frameEstadisticaLayout.setHorizontalGroup(
+            frameEstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 659, Short.MAX_VALUE)
+        );
+        frameEstadisticaLayout.setVerticalGroup(
+            frameEstadisticaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(frameEstadistica, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 670, 400));
+
+        frameMain.setVisible(true);
+
+        javax.swing.GroupLayout frameMainLayout = new javax.swing.GroupLayout(frameMain.getContentPane());
+        frameMain.getContentPane().setLayout(frameMainLayout);
+        frameMainLayout.setHorizontalGroup(
+            frameMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 489, Short.MAX_VALUE)
+        );
+        frameMainLayout.setVerticalGroup(
+            frameMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(frameMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 500, 400));
+
+        frameContador.setVisible(true);
+
+        javax.swing.GroupLayout frameContadorLayout = new javax.swing.GroupLayout(frameContador.getContentPane());
+        frameContador.getContentPane().setLayout(frameContadorLayout);
+        frameContadorLayout.setHorizontalGroup(
+            frameContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 489, Short.MAX_VALUE)
+        );
+        frameContadorLayout.setVerticalGroup(
+            frameContadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(frameContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,20 +143,24 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentsMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JInternalFrame frameContador;
+    private javax.swing.JInternalFrame frameEstadistica;
+    private javax.swing.JInternalFrame frameMain;
+    private javax.swing.JInternalFrame frameReloj;
     // End of variables declaration//GEN-END:variables
-
+    public void inicializacion(){
+        this.setSize(1150, 800);
+        contador = new ContadorPrograma();
+        this.frameContador.setContentPane(contador);
+        this.frameContador.setSize(500, 400);
+        this.frameContador.setLocation(0, 0);
+        principal = new mainCalendarizador();
+        this.frameMain.setContentPane(principal);
+        this.frameMain.setSize(500, 400);
+        this.frameMain.setLocation(0, 400);
+        ControlReloj = new ControlReloj_sistema();
+        this.frameReloj.setContentPane(ControlReloj);
+        estadistica = new estadisticaCalendarizador();
+        this.frameEstadistica.setContentPane(estadistica);
+    }
 }
