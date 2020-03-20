@@ -40,8 +40,7 @@ public class Calendarizador extends Thread{
         int i;
         Proceso procesoActivo;
         while(correr){
-           if (procesoEnCurso != null)
-                PC();
+           
             System.out.println("Tamaño lista: " + this.listaProcesos.size()+ "   en espera: " + this.procesosActivos);
             if((this.listaProcesos.size() > 0) && (this.procesosActivos > 0)){
                 procesoActivo = listaProcesos.get(contador);
@@ -51,6 +50,8 @@ public class Calendarizador extends Thread{
                     this.rotarListaEnEspera(procesoActivo.getID());
                     this.actualizarListaFinalizado();
                     Calendarizador.procesoEnCurso = procesoActivo;
+                    if (procesoEnCurso != null)
+                        PC();
                     for(i = 0; i < 40; i++){
                         try {
                             if(this.interrupcion)
